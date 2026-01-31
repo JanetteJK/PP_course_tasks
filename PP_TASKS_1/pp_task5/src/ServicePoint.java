@@ -15,7 +15,10 @@ public class ServicePoint {
     }
 
     public Customer removeFromQueue() {
-        return customers.getLast();
+        if (customers.isEmpty()) {
+            return null;
+        }
+        return customers.removeLast();
 
     }
 
@@ -33,8 +36,8 @@ public class ServicePoint {
             System.out.println("Customer #" + served.getId() + " response time was " + served.getOverallTime() * Math.pow(10, -9) + " seconds, and service time was " + served.getServiceTime() * Math.pow(10, -9) + " seconds.");
         }
         System.out.println("Queue is empty, closing service point");
-        }
     }
+}
 
 
 
