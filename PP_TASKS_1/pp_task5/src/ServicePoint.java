@@ -1,42 +1,40 @@
 import javax.swing.plaf.TableHeaderUI;
 import java.util.LinkedList;
 
-public class ServicePoint  {
-    LinkedList<Customer> customers;
-    long sleeptime = (long)(Math.random() * 2000);
+public class ServicePoint {
+    private LinkedList<Customer> customers;
+    long sleeptime = (long) (Math.random() * 2000);
 
-
-
-    public ServicePoint(){
+    public ServicePoint() {
         customers = new LinkedList<>();
     }
 
-    public void addToQueue(Customer a){
+    public void addToQueue(Customer a) {
         a.setStartTime(System.nanoTime());
         customers.addFirst(a);
     }
-    public Customer removeFromQueue(){
+
+    public Customer removeFromQueue() {
         return customers.getLast();
 
     }
 
-    public void serve(){
-        Customer served = removeFromQueue();
-        served.setEndTime(System.nanoTime());
-        served.setServiceStart(System.nanoTime());
-        try {
-            Thread.sleep(sleeptime);
-        } catch (InterruptedException e) {
+    public void serve() {
+        while (!customers.isEmpty()) {
+            Customer served = removeFromQueue();
+            served.setEndTime(System.nanoTime());
+            served.setServiceStart(System.nanoTime());
+            try {
+                Thread.sleep(sleeptime);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            served.setEndService(System.nanoTime());
+            System.out.println("Customer #" + served.getId() + " response time was " + served.getOverallTime() * Math.pow(10, -9) + " seconds, and service time was " + served.getServiceTime() * Math.pow(10, -9) + " seconds.");
         }
-        served.setEndService(System.nanoTime());
-        System.out.println("Customer " + served.getId() + " response time was " + served.getOverallTime() * Math.pow(10,-9) + " seconds, and service time was " + served.getServiceTime()* Math.pow(10,-9) + " seconds.");
+        System.out.println("Queue is empty, closing service point");
         }
-
-
-        public static void main(String[]args){
-        }
-
-
     }
+
 
 

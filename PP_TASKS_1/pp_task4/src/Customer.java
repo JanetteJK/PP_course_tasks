@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -40,7 +41,7 @@ public class Customer {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        LinkedList queue = new LinkedList();
+        LinkedList<Customer> queue = new LinkedList<Customer>();
         ArrayList<Customer> ppl = new ArrayList<>();
         Customer c1 = new Customer();
         Customer c2 = new Customer();
@@ -51,6 +52,7 @@ public class Customer {
         ppl.add(c2);
         ppl.add(c3);
         ppl.add(c4);
+
 
             do {
                 for (Customer c : ppl) {
