@@ -24,7 +24,7 @@ public class EventList {
     public void getEvents() {
         while (!events.isEmpty()) {
             Event e = events.poll();
-            System.out.println("Event ID # " + e.getEventId() + " execution time " + e.getTime() + " seconds");
+            System.out.println("Event ID #" + e.getEventId() + ", event type: " + e.getType() + ", execution time: " + e.getTime() + " seconds");
 
             // did not print the times in order
         /* if (!events.isEmpty()) {

@@ -5,11 +5,16 @@ public class Event implements Comparable<Event> {
     private int time;
     private int eventId;
     private static int _id;
+    EventType type;
 
-    public Event(double time){
+
+
+    public Event(EventType type,double time){
         _id++;
         this.eventId = _id;
-        this.time = (int )time;
+        this.time = (int)time;
+        this.type = type;
+
 
     }
 
@@ -23,6 +28,14 @@ public class Event implements Comparable<Event> {
 
     public int compareTo(Event e){
         return time - e.time;
+    }
+
+    public enum EventType{
+        ARRIVAL, EXIT
+    }
+
+    public EventType getType(){
+        return this.type;
     }
 
 
