@@ -5,6 +5,8 @@ public class Customer {
     private static int _id;
     private long serviceStart;
     private long serviceEnd;
+    private long serviceTime;
+
 
 
     public Customer() {
@@ -51,5 +53,9 @@ public class Customer {
     public long getOverallTime(){
         return getServiceTime() + getTimeSpent();
     }
+
+
+
+
 
 }

@@ -3,7 +3,9 @@ import java.util.LinkedList;
 
 public class ServicePoint {
     private LinkedList<Customer> customers;
-    long sleeptime = (long) (Math.random() * 2000);
+    //long sleeptime = (long)(Math.random() * 1500 + 500);
+    long customersLength;
+    private long meanService;
 
     public ServicePoint() {
         customers = new LinkedList<>();
@@ -18,24 +20,28 @@ public class ServicePoint {
         if (customers.isEmpty()) {
             return null;
         }
+        customers.getLast().setEndTime(System.nanoTime());
         return customers.removeLast();
 
     }
 
     public void serve() {
+        customersLength = customers.size();
         while (!customers.isEmpty()) {
             Customer served = removeFromQueue();
-            served.setEndTime(System.nanoTime());
             served.setServiceStart(System.nanoTime());
+            long sleeptime = (long)(Math.random() * 1500 + 500);
             try {
                 Thread.sleep(sleeptime);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             served.setEndService(System.nanoTime());
-            System.out.println("Customer #" + served.getId() + " response time was " + served.getOverallTime() * Math.pow(10, -9) + " seconds, and service time was " + served.getServiceTime() * Math.pow(10, -9) + " seconds.");
+            this.meanService = meanService + served.getServiceTime();
+            System.out.println("Customer #" + served.getId() + " response time was " + (double)served.getOverallTime()* Math.pow(10, -9) + " seconds, and service time was " + (double)served.getServiceTime() * Math.pow(10, -6) + " seconds.");
         }
-        System.out.println("Queue is empty, closing service point");
+        System.out.println("Queue is empty");
+        System.out.println("Mean service time was " + (this.meanService/customersLength) * Math.pow(10,-9) + " seconds");
     }
 }
 
