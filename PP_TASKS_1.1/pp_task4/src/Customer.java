@@ -55,20 +55,24 @@ public class Customer {
 
 
             do {
-                for (Customer c : ppl) {
+                for (int i = 0; i < ppl.size(); i++) {
                     System.out.println("Press 1 to queue customers or 2 to dequeue customers");
                     int ans = scanner.nextInt();
                     if (ans == 1) {
+                        Customer c = ppl.get(i);
                         c.setStartTime(System.nanoTime());
                         queue.addFirst(c);
-                        System.out.println("added customer to queue, queue length is " + queue.size() );
+                        System.out.println("added customer #" + c.getId() + " to queue, queue length is " + queue.size() );
                     }
-                    if (ans == 2 && !queue.isEmpty()) {
+                    else if (ans == 2 && !queue.isEmpty()) {
 
                         Customer v = (Customer) queue.getLast();
                         v.setEndTime(System.nanoTime());
                         queue.removeLast();
-                        System.out.println("Customer " + v.getId() + " spent " + v.getTimeSpent() * (Math.pow(10, -6)) + " ms in the queue\n");
+                        System.out.println("Customer #" + v.getId() + " spent " + v.getTimeSpent() * (Math.pow(10, -6)) + " ms in the queue\n");
+                    }else{
+                        System.out.println("The queue is empty");
+                        break;
                     }
 
                 }
