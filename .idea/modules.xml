@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/PP_TASKS_1.1/PP_TASKS_1.iml" filepath="$PROJECT_DIR$/PP_TASKS_1.1/PP_TASKS_1.iml" />
       <module fileurl="file://$PROJECT_DIR$/PP_TASKS_1.2/PP_TASKS_1.2.iml" filepath="$PROJECT_DIR$/PP_TASKS_1.2/PP_TASKS_1.2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PP_TASKS_1.3/PP_TASKS_1.3.iml" filepath="$PROJECT_DIR$/PP_TASKS_1.3/PP_TASKS_1.3.iml" />
       <module fileurl="file://$PROJECT_DIR$/PP_course_tasks.iml" filepath="$PROJECT_DIR$/PP_course_tasks.iml" />
       <module fileurl="file://$PROJECT_DIR$/PP_TASKS_1.1/pp_task3/pp_task1.iml" filepath="$PROJECT_DIR$/PP_TASKS_1.1/pp_task3/pp_task1.iml" />
       <module fileurl="file://$PROJECT_DIR$/PP_TASKS_1.1/pp_task4/pp_task4.iml" filepath="$PROJECT_DIR$/PP_TASKS_1.1/pp_task4/pp_task4.iml" />
