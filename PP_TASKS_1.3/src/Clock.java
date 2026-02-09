@@ -22,8 +22,9 @@ public class Clock {
         return time;
     }
 }
+// to use the clock as an independent program
 
-class Main{
+/*class Main {
     public static void main(String[]args) {
         Clock clock = Clock.getInstance();
 
@@ -32,4 +33,6 @@ class Main{
         System.out.println("Clock says " + clock.getTime());
 
     }
-}
+
+ */
+
