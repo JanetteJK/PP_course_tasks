@@ -16,12 +16,11 @@ public class Main6 {
         }
         for (Event event : eventList) {
             System.out.println("Type: " + event.getEventType() + " Time: " + event.getTime());
-            sp.addQueue(new Customer(), event);
-            new Customer().setStartTime((long)event.getTime());
-            clock.moveTime(5);
+            clock.moveTime(event.getTime());
+            System.out.println("Total process time was: " + clock.getTime());
         }
 
-        sp.removeCustomers(clock);
+
 
 
     }
